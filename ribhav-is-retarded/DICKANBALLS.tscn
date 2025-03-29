@@ -1,16 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bebmb3nne7jrj"]
+[gd_scene load_steps=4 format=3 uid="uid://bebmb3nne7jrj"]
 
+[ext_resource type="Script" uid="uid://b6tqau7j8g4ke" path="res://character_body_2d.gd" id="1_3p7be"]
 [ext_resource type="Texture2D" uid="uid://ia0odq8rxg6g" path="res://icon.svg" id="1_iedoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p7be"]
+size = Vector2(93, 74)
 
-[node name="Node2D" type="Node2D"]
+[node name="Character" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_3p7be")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(32.5, 24)
 shape = SubResource("RectangleShape2D_3p7be")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(2866, 1780)
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(35, 28)
 texture = ExtResource("1_iedoq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
