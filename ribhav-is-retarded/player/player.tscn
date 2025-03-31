@@ -12,6 +12,8 @@ scale = Vector2(0.993296, 0.998922)
 script = ExtResource("1_i3pqv")
 inv = ExtResource("2_hqtel")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(33.2227, -23.0739)
 shape = SubResource("RectangleShape2D_2hs0m")
@@ -20,3 +22,6 @@ shape = SubResource("RectangleShape2D_2hs0m")
 position = Vector2(32.216, -22.6453)
 scale = Vector2(0.287967, 0.272625)
 texture = ExtResource("3_g1dw6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
