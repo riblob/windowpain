@@ -1,27 +1,118 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhayfom1ai3a"]
+[gd_scene load_steps=16 format=3 uid="uid://qhayfom1ai3a"]
 
 [ext_resource type="Script" uid="uid://b6tqau7j8g4ke" path="res://player/player.gd" id="1_i3pqv"]
 [ext_resource type="Resource" uid="uid://bqpawdbcopjm2" path="res://inventory/playerinv.tres" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://vp0uxclxveod" path="res://player/luna_godot.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://b4hbd8nexs66p" path="res://player/pixil-frame-0.png" id="4_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://dhn567xd3qy2q" path="res://player/pixil-frame-1.png" id="5_8t03j"]
+[ext_resource type="Texture2D" uid="uid://c4i13gj7vho1j" path="res://player/pixil-frame-2.png" id="6_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://ck0xg3jcrsfym" path="res://player/pixil-frame-3.png" id="7_ebec5"]
+[ext_resource type="Texture2D" uid="uid://ekxh7vaa5uhv" path="res://player/pixil-frame-4.png" id="8_yllr7"]
+[ext_resource type="Texture2D" uid="uid://c3farm1i2li4q" path="res://player/pixil-frame-5.png" id="9_kb6p2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
 size = Vector2(78.5265, 228.148)
+
+[sub_resource type="Animation" id="Animation_wodsf"]
+resource_name = "Walking"
+length = 0.5
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "walk"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "walk_right"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_32hag"]
+_data = {
+&"RESET": SubResource("Animation_hg6s5"),
+&"Walking": SubResource("Animation_wodsf"),
+&"walk": SubResource("Animation_rgyib"),
+&"walk_right": SubResource("Animation_8t03j")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ieo8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hg6s5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8t03j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2ieo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ebec5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yllr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kb6p2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.993296, 0.998922)
 script = ExtResource("1_i3pqv")
 inv = ExtResource("2_hqtel")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(33.2227, -23.0739)
 shape = SubResource("RectangleShape2D_2hs0m")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(32.216, -22.6453)
-scale = Vector2(0.287967, 0.272625)
-texture = ExtResource("3_g1dw6")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_32hag")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2ieo8")
+animation = &"walk"
