@@ -10,12 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3farm1i2li4q" path="res://player/pixil-frame-5.png" id="9_kb6p2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
-size = Vector2(78.5265, 228.148)
-
-[sub_resource type="Animation" id="Animation_wodsf"]
-resource_name = "Walking"
-length = 0.5
-loop_mode = 1
+size = Vector2(81.5467, 228.148)
 
 [sub_resource type="Animation" id="Animation_hg6s5"]
 length = 0.001
@@ -31,6 +26,11 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+
+[sub_resource type="Animation" id="Animation_wodsf"]
+resource_name = "Walking"
+length = 0.5
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_rgyib"]
 resource_name = "walk"
@@ -96,7 +96,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -105,7 +105,7 @@ script = ExtResource("1_i3pqv")
 inv = ExtResource("2_hqtel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33.2227, -23.0739)
+position = Vector2(38.7598, -23.0739)
 shape = SubResource("RectangleShape2D_2hs0m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -114,5 +114,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(36.7781, -20.9093)
+scale = Vector2(0.254494, 0.273835)
 sprite_frames = SubResource("SpriteFrames_2ieo8")
 animation = &"walk"
