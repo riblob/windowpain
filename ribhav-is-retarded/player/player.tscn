@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://qhayfom1ai3a"]
+[gd_scene load_steps=17 format=3 uid="uid://qhayfom1ai3a"]
 
 [ext_resource type="Script" uid="uid://b6tqau7j8g4ke" path="res://player/player.gd" id="1_i3pqv"]
 [ext_resource type="Resource" uid="uid://bqpawdbcopjm2" path="res://inventory/playerinv.tres" id="2_hqtel"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c4i13gj7vho1j" path="res://player/pixil-frame-2.png" id="6_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://ck0xg3jcrsfym" path="res://player/pixil-frame-3.png" id="7_ebec5"]
 [ext_resource type="Texture2D" uid="uid://ekxh7vaa5uhv" path="res://player/pixil-frame-4.png" id="8_yllr7"]
+[ext_resource type="PackedScene" uid="uid://r78335plll3b" path="res://inventory/inv_ui.tscn" id="9_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://c3farm1i2li4q" path="res://player/pixil-frame-5.png" id="9_kb6p2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
@@ -118,3 +119,5 @@ position = Vector2(36.7781, -20.9093)
 scale = Vector2(0.254494, 0.273835)
 sprite_frames = SubResource("SpriteFrames_2ieo8")
 animation = &"walk"
+
+[node name="Inv_UI" parent="." instance=ExtResource("9_hg6s5")]
