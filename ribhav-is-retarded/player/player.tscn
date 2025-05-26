@@ -121,3 +121,7 @@ sprite_frames = SubResource("SpriteFrames_2ieo8")
 animation = &"walk"
 
 [node name="Inv_UI" parent="." instance=ExtResource("9_hg6s5")]
+offset_left = 201.35
+offset_top = -292.315
+offset_right = 241.35
+offset_bottom = -252.315

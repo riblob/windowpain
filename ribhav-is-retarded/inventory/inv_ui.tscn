@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://r78335plll3b"]
+[gd_scene load_steps=4 format=3 uid="uid://r78335plll3b"]
 
 [ext_resource type="Script" uid="uid://du85e2vb8pd7p" path="res://inventory/Inv_UI.gd" id="1_f2u1w"]
+[ext_resource type="Texture2D" uid="uid://cunucdv2awv12" path="res://art/pixil-frame-0 (42).png" id="2_w82yi"]
+[ext_resource type="PackedScene" uid="uid://dv3pfpaif2a0r" path="res://inventory/inv_ui_slot.tscn" id="3_dn3an"]
 
 [node name="Inv_UI" type="Control"]
 layout_mode = 3
@@ -11,5 +13,15 @@ script = ExtResource("1_f2u1w")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 250.0
-offset_bottom = 181.0
+offset_right = 229.0
+offset_bottom = 220.0
+texture = ExtResource("2_w82yi")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+
+[node name="inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dn3an")]
+layout_mode = 2
